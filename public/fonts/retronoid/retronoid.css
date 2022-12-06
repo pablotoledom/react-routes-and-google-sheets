@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'Retronoid';
+    src: url('Retronoid-Italic.woff2') format('woff2'),
+        url('Retronoid-Italic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
