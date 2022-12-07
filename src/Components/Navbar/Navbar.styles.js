@@ -27,7 +27,7 @@ export const NavTittle= styled.div`
   color: #ffffff;
   font-size: 16px;
   font-weight: 500;
-  font-family: 'monospace';
+  font-family: monospace;
 `;
 
 export const LogoButton = styled.button`
