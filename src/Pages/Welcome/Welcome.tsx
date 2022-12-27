@@ -31,7 +31,7 @@ function Welcome() {
         <ol>
           {categoryList.map((category) => (
             <li key={category.idCategory}>
-              <Link to={`/category/${category.idCategory}/${category.nameCategory}`}>{category.nameCategory}</Link>
+              <Link to={`/category/${category.idCategory}/${encodeURIComponent(category.nameCategory)}`}>{category.nameCategory}</Link>
             </li>
           ))}
         </ol>
