@@ -5,11 +5,11 @@ import Loading from '../../Components/Loading';
 
 function Welcome() {
   const [showLoading, setShowLoading] = useState(false);
-  const [categoryList, setCategoryList] = useState([]);
+  const [categoryList, setCategoryList] = useState<Category[]>([]);
 
   const getCategoryList = async () => {
     setShowLoading(true);
-    const categories = await getCategories();
+    const categories: Category[] = await getCategories();
     setCategoryList(categories);
     setShowLoading(false)
   };

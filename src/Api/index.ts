@@ -1,4 +1,4 @@
-async function getData(start, end){
+async function getData(start: string, end: string){
   let response;
   // Google Sheets Id
   const idSheets = '1TjIhX7LvrgeBrTyyvCztQlImnJOREYJw7aPinaUKwlA';
@@ -19,10 +19,10 @@ async function getData(start, end){
 }
 
 export const getCategories = async () => {
-  const responseList  = await getData('A2','b20');
-  const categoryList = [];
+  const responseList  = await getData('A2','b20') || [];
+  const categoryList: Category[] = [];
 
-  responseList.map((category) => {
+  responseList.map((category: any[]) => {
     if (category.length > 0) {
 
       categoryList.push({
@@ -37,16 +37,16 @@ export const getCategories = async () => {
   return categoryList;
 }
 
-export const getItems = async (idCategory) => {
-  const glossary  = await getData('c2','g20');
-  const glossaryList = [];
+export const getItems = async (idCategory: string) => {
+  const glossary  = await getData('c2','g20') || [];
+  const itemList: Item[] = [];
 
   // console.log(idArea, glossary);
 
-  glossary.map((item) => {
+  glossary.map((item: any[]) => {
     if (item.length > 0) {
 
-      glossaryList.push({
+      itemList.push({
         idCategory: item[0],
         idItem: item[1],
         nameItem: item[2],
@@ -57,5 +57,5 @@ export const getItems = async (idCategory) => {
     return item;
   });
 
-  return glossaryList.filter((item) => item.idCategory === idCategory);
+  return itemList.filter((item) => item.idCategory === idCategory);
 }
