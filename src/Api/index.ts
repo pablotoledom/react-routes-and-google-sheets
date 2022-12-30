@@ -38,7 +38,7 @@ export const getCategories = async () => {
 }
 
 export const getItems = async (idCategory: string) => {
-  const glossary  = await getData('c2','g20') || [];
+  const glossary  = await getData('c2','h20') || [];
   const itemList: Item[] = [];
 
   // console.log(idArea, glossary);
@@ -51,6 +51,8 @@ export const getItems = async (idCategory: string) => {
         idItem: item[1],
         nameItem: item[2],
         descriptionItem: item[3],
+        link: item[4],
+        image: item[5],
       });
     }
 

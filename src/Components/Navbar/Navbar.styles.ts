@@ -23,7 +23,7 @@ export const NavContent = styled.div`
 `;
 
 export const NavTittle= styled.div`
-  margin-left: 250px;
+  margin: 0 20px 0 250px;
   color: #ffffff;
   font-size: 16px;
   font-weight: 500;
@@ -49,4 +49,23 @@ export const LogoButton = styled.button`
   border: none;
   cursor: pointer;
   transform: rotate(-10deg)
+`;
+
+export const NavButton = styled.button`
+  background-color: #555;
+  padding: 20px;
+  height: 100%;
+  width: 120px;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  border-left: 1px solid #6b6b6b;
+  cursor: pointer;
+  transition-duration: 0.4s;
+
+  &:hover {
+    background-color: #000;
+    color: #fff;
+    font-size: 18px;
+  }
 `;

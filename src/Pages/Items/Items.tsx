@@ -2,7 +2,15 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { getItems } from "../../Api";
 import Loading from "../../Components/Loading";
-import { AreaDescription, AreaTittle, BackButton, PageAreaStyled } from "./Items.styled";
+import {
+  AreaDescription,
+  AreaTittle,
+  BackButton,
+  PageAreaStyled,
+  ImageStyled,
+  ItemStyled,
+  LinkStyled,
+} from "./Items.styled";
 
 function Items() {
   const navigate = useNavigate();
@@ -31,13 +39,19 @@ function Items() {
       <h1>{nameItem}</h1>
 
       {itemList.map((item: Item) => (
-        <div key={item.idItem}>
-          <AreaTittle>{item.nameItem}</AreaTittle>
-          <AreaDescription>{item.descriptionItem}</AreaDescription>
-        </div>
+        <ItemStyled key={item.idItem}>
+          <ImageStyled src={item.image} />
+          <div>
+            <AreaTittle>{item.nameItem}</AreaTittle>
+            <AreaDescription>{item.descriptionItem}</AreaDescription>
+            <LinkStyled>
+              <a href={item. link} rel="noreferrer" target="_blank">More info..</a>
+            </LinkStyled>
+          </div>
+        </ItemStyled>
       ))}
       
-      <BackButton onClick={() => { navigate(-1); }}>Volver</BackButton>
+      <BackButton onClick={() => { navigate(-1); }}>Back to home page</BackButton>
     </PageAreaStyled>
   );
 }

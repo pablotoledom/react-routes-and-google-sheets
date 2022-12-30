@@ -8,4 +8,6 @@ type Item = {
   idItem: string,
   nameItem: string,
   descriptionItem: string,
+  link: string,
+  image: string,
 }

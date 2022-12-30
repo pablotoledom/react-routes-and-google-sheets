@@ -20,3 +20,18 @@ export const BackButton = styled.button`
   font-weight: bold;
   margin: 40px 0;
 `;
+
+export const ImageStyled = styled.img`
+  width: 300px;
+  margin-right: 20px;
+`;
+
+export const ItemStyled = styled.div`
+  display: flex;
+  margin-bottom: 20px
+`;
+
+export const LinkStyled = styled.div`
+  margin-top: 20px;
+  text-align: right;
+`;

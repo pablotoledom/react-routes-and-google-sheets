@@ -1,6 +1,12 @@
 import { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { Nav, NavContent, LogoButton, NavTittle } from './Navbar.styles';
+import {
+  Nav,
+  NavContent,
+  LogoButton,
+  NavTittle,
+  NavButton,
+} from './Navbar.styles';
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -20,6 +26,8 @@ const Navbar = () => {
       <NavContent>
         <LogoButton onClick={buttonBack}>The Retro<br />Center</LogoButton>
         <NavTittle>{titulo}</NavTittle>
+        <NavButton onClick={() => navigate('/page-a')}>Page A</NavButton>
+        <NavButton onClick={() => navigate('/page-b')}>Page B</NavButton>
       </NavContent>
     </Nav>
   )

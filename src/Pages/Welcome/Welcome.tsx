@@ -26,8 +26,7 @@ function Welcome() {
 
       <div className="Welcome-header">
         <h1>Welcome</h1>
-        <h3>Select category</h3>
-
+        <h3>Select category from Google sheet data</h3>
         <ol>
           {categoryList.map((category) => (
             <li key={category.idCategory}>
