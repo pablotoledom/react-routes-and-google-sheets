@@ -17,6 +17,7 @@ export const StyledTittle = styled.p`
 
 export const StyledParagraph = styled.p`
   font-size: 18px;
+  text-align: justify;
 `;
 
 export const StyledImageParagraph = styled.img`

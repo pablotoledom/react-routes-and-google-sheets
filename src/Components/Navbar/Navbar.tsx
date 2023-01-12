@@ -7,6 +7,8 @@ import {
   LogoButton,
   NavTittle,
   NavButton,
+  NavButtonContainer,
+  NavTittleContainer,
 } from './Navbar.styles';
 
 const Navbar = () => {
@@ -33,11 +35,16 @@ const Navbar = () => {
   return (
     <Nav>
       <NavContent>
-        <LogoButton onClick={buttonBack} />
-        <NavTittle>{tittle}</NavTittle>
-        {menuList.map((menu) => (
-          <NavButton key={`menu-${menu.id}`} onClick={() => navigate(menu.link)}>{menu.name}</NavButton>
-        ))}
+        <NavTittleContainer>
+          <LogoButton onClick={buttonBack} />
+          <NavTittle>{tittle}</NavTittle>
+        </NavTittleContainer>
+
+        <NavButtonContainer>
+          {menuList.map((menu) => (
+            <NavButton key={`menu-${menu.id}`} onClick={() => navigate(menu.link)}>{menu.name}</NavButton>
+          ))}
+        </NavButtonContainer>
       </NavContent>
     </Nav>
   )
