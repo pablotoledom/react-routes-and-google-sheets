@@ -1,12 +1,24 @@
+import { useEffect, useState } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
+import { getRoutes } from "../../Api";
 import { GlobalStyle } from "./App.styles";
-import Welcome from "../Welcome";
+import Page from "../Page";
 import LayoutSite  from "../LayoutSite";
-import PageA from "../PageA";
-import PageB from "../PageB";
 import Items from "../Items";
 
 function App() {
+  const [pageList, setPageList] = useState<Route[]>([]);
+
+  const getPageList = async () => {
+    const pages: Route[] = await getRoutes();
+    setPageList(pages);
+  };
+
+
+  useEffect(() => {
+    getPageList();
+  }, []);
+
   return (
     <>
       <GlobalStyle />
@@ -14,10 +26,12 @@ function App() {
       <Routes>
         <Route path="/" element={<LayoutSite />}>
           <Route path="*" element={<Navigate to="/" replace />} />
-          <Route index element={<Welcome />} />
           <Route path="/category/:idItem/:nameItem" element={<Items />} />
-          <Route path="/page-a" element={<PageA />} />
-          <Route path="/page-b" element={<PageB />} /> 
+          <>
+            {pageList.length > 0 && pageList.map((route) => (
+              <Route key={route.id} path={route.link} element={<Page />} />
+            ))}
+          </>
         </Route>
       </Routes>
     </>

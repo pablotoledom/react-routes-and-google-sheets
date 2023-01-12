@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { getRoutes } from "../../Api";
 import {
   Nav,
   NavContent,
@@ -11,10 +12,18 @@ import {
 const Navbar = () => {
   const navigate = useNavigate();
   const { pathname } = useLocation()
-  const [titulo, setTitulo] = useState('');
+  const [tittle, setTittle] = useState('');
+  const [menuList, setMenuList] = useState<Route[]>([]);
+
+  const getMenuList = async () => {
+    const menues: Route[] = await getRoutes();
+    console.log(menues);
+    setMenuList(menues);
+  };
 
   useEffect(() => {
-    setTitulo('Test navigation site');
+    setTittle('Haeng Transport Service');
+    getMenuList();
   }, [pathname]);
 
   const buttonBack = () => {
@@ -24,10 +33,11 @@ const Navbar = () => {
   return (
     <Nav>
       <NavContent>
-        <LogoButton onClick={buttonBack}>The Retro<br />Center</LogoButton>
-        <NavTittle>{titulo}</NavTittle>
-        <NavButton onClick={() => navigate('/page-a')}>Page A</NavButton>
-        <NavButton onClick={() => navigate('/page-b')}>Page B</NavButton>
+        <LogoButton onClick={buttonBack} />
+        <NavTittle>{tittle}</NavTittle>
+        {menuList.map((menu) => (
+          <NavButton key={`menu-${menu.id}`} onClick={() => navigate(menu.link)}>{menu.name}</NavButton>
+        ))}
       </NavContent>
     </Nav>
   )

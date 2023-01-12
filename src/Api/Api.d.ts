@@ -1,3 +1,16 @@
+type Route = {
+  id: string,
+  name: string,
+  link: string
+}
+
+type PageContent = {
+  route: string,
+  id: string,
+  type: string,
+  content: string
+}
+
 type Category = {
   idCategory: string,
   nameCategory: string
