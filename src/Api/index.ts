@@ -39,7 +39,7 @@ export const getRoutes = async () => {
 }
 
 export const getPageContents = async (location: string) => {
-  const responseList  = await getData('PagesContent', 'A3','D20') || [];
+  const responseList  = await getData('PagesContent', 'A3','D200') || [];
   const contentList: PageContent[] = [];
 
   responseList.map((content: any[]) => {

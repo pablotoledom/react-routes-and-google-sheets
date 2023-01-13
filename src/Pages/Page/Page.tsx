@@ -2,12 +2,14 @@ import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { getPageContents } from "../../Api";
 import Carousel from '../../Components/Carousel';
+import ImageModal from '../../Components/ImageModal';
 import Loading from '../../Components/Loading';
-import { StyledContent, StyledImage, StyledImageParagraph, StyledPageContainer, StyledParagraph, StyledTittle, StyledWhatsappLink } from './Page.styles';
+import { StyledContent, StyledFacebookLink, StyledImage, StyledImageParagraph, StyledImgGalery, StyledImgGaleryContainer, StyledInstagramLink, StyledPageContainer, StyledParagraph, StyledSeparator, StyledTittle, StyledWhatsappLink } from './Page.styles';
 
 function Welcome() {
   const [showLoading, setShowLoading] = useState(false);
   const [contentList, setContentList] = useState<PageContent[]>([]);
+  const [showImageModal, setShowImageModal] = useState<string>('');
   const location = useLocation();
 
   console.log(location.pathname);
@@ -29,11 +31,19 @@ function Welcome() {
         <Loading />
       )}
 
-      <Carousel />
+      <ImageModal
+        show={showImageModal !== ''}
+        src={showImageModal}
+        closeCallback={() => setShowImageModal('')}
+      />
 
       <StyledContent>
         {contentList.map((content) => (
           <>
+            {content.type === 'carousel' && (
+              <Carousel />
+            )}
+
             {content.type === 'paragraph' && (
               <StyledParagraph key={content.id}>
                 {content.content}
@@ -41,7 +51,7 @@ function Welcome() {
             )}
 
             {content.type === 'image-paragraph' && (
-              <StyledImageParagraph alt="image" src={content.content} />
+              <StyledImageParagraph key={content.id} alt="image" src={content.content} />
             )}
 
             {content.type === 'image' && (
@@ -55,10 +65,45 @@ function Welcome() {
             )} 
 
             {content.type === 'whatsapp-link' && (
-              <StyledWhatsappLink key={content.id} href={`https://api.whatsapp.com/send?phone=${content.content}&text=Hi, i need more information!"`}>
-                WhatsApp number +{content.content}
+              <StyledWhatsappLink
+                key={content.id} href={`https://api.whatsapp.com/send?phone=${content.content}&text=Hi, i need more information!"`}
+                target="_blank"
+              >
+                WhatsApp number: +{content.content}
               </StyledWhatsappLink>
+            )}
+
+            {content.type === 'facebook-link' && (
+              <StyledFacebookLink
+                key={content.id} href={`https://www.facebook.com/${content.content}`}
+                target="_blank"
+              >
+                Facebook: {content.content}
+              </StyledFacebookLink>
             )} 
+
+            {content.type === 'instagram-link' && (
+              <StyledInstagramLink
+                key={content.id} href={`https://www.instagram.com/${content.content}/`}
+                target="_blank"
+              >
+                Instagram: {content.content}
+              </StyledInstagramLink>
+            )} 
+
+            {content.type === 'line-feed' && (
+              <br />
+            )} 
+
+            {content.type === 'separator' && (
+              <StyledSeparator />
+            )}
+
+            {content.type === 'image-galery' && (
+              <StyledImgGaleryContainer onClick={() => setShowImageModal(content.content)}>
+                <StyledImgGalery key={content.id} alt={content.type} src={content.content} />
+              </StyledImgGaleryContainer>
+            )}
           </>
         ))}
       </StyledContent>
