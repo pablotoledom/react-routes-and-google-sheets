@@ -4,7 +4,22 @@ import { getPageContents } from "../../Api";
 import Carousel from '../../Components/Carousel';
 import ImageModal from '../../Components/ImageModal';
 import Loading from '../../Components/Loading';
-import { StyledContent, StyledFacebookLink, StyledImage, StyledImageParagraph, StyledImgGalery, StyledImgGaleryContainer, StyledInstagramLink, StyledPageContainer, StyledParagraph, StyledSeparator, StyledTittle, StyledWhatsappLink } from './Page.styles';
+import {
+  StyledContent,
+  StyledFacebookLink,
+  StyledImage,
+  StyledImageParagraph,
+  StyledImgGalery,
+  StyledImgGaleryContainer2,
+  StyledImgGaleryContainer3,
+  StyledInstagramLink,
+  StyledPageContainer,
+  StyledParagraph,
+  StyledSeparator,
+  StyledSeparatorLine,
+  StyledTittle,
+  StyledWhatsappLink,
+} from './Page.styles';
 
 function Welcome() {
   const [showLoading, setShowLoading] = useState(false);
@@ -62,7 +77,7 @@ function Welcome() {
               <StyledTittle key={content.id}>
                 {content.content}
               </StyledTittle>
-            )} 
+            )}
 
             {content.type === 'whatsapp-link' && (
               <StyledWhatsappLink
@@ -80,7 +95,7 @@ function Welcome() {
               >
                 Facebook: {content.content}
               </StyledFacebookLink>
-            )} 
+            )}
 
             {content.type === 'instagram-link' && (
               <StyledInstagramLink
@@ -89,20 +104,30 @@ function Welcome() {
               >
                 Instagram: {content.content}
               </StyledInstagramLink>
-            )} 
+            )}
 
             {content.type === 'line-feed' && (
               <br />
-            )} 
+            )}
 
             {content.type === 'separator' && (
               <StyledSeparator />
             )}
 
-            {content.type === 'image-galery' && (
-              <StyledImgGaleryContainer onClick={() => setShowImageModal(content.content)}>
+            {content.type === 'separator-line' && (
+              <StyledSeparatorLine />
+            )}
+
+            {content.type === 'image-galery-2' && (
+              <StyledImgGaleryContainer2 onClick={() => setShowImageModal(content.content)}>
                 <StyledImgGalery key={content.id} alt={content.type} src={content.content} />
-              </StyledImgGaleryContainer>
+              </StyledImgGaleryContainer2>
+            )}
+
+            {content.type === 'image-galery-3' && (
+              <StyledImgGaleryContainer3 onClick={() => setShowImageModal(content.content)}>
+                <StyledImgGalery key={content.id} alt={content.type} src={content.content} />
+              </StyledImgGaleryContainer3>
             )}
           </>
         ))}

@@ -1,7 +1,7 @@
 import styled from "styled-components/macro";
 
 export const StyledImageModalContainer = styled.div`
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -25,6 +25,6 @@ export const StyledCloseButton = styled.button`
 `;
 
 export const StyledImageModal = styled.img`
-  max-width: 90%;
-  max-height: 90%;
+  max-width: 95%;
+  max-height: 95%;
 `;
