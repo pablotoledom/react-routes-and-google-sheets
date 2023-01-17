@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { getPageContents } from "../../Api";
 import Carousel from '../../Components/Carousel';
 import ImageModal from '../../Components/ImageModal';
@@ -10,14 +10,15 @@ import {
   StyledImage,
   StyledImageParagraph,
   StyledImgAlt,
-  StyledImgGalery,
   StyledImgGaleryContainer2,
   StyledImgGaleryContainer3,
   StyledInstagramLink,
+  StyledInternalLink,
   StyledPageContainer,
   StyledParagraph,
   StyledSeparator,
   StyledSeparatorLine,
+  StyledText,
   StyledTittle,
   StyledTittle2,
   StyledTittle3,
@@ -25,10 +26,11 @@ import {
 } from './Page.styles';
 
 function Welcome() {
+  const location = useLocation();
+  const navigate = useNavigate();
   const [showLoading, setShowLoading] = useState(false);
   const [contentList, setContentList] = useState<PageContent[]>([]);
   const [showImageModal, setShowImageModal] = useState<string>('');
-  const location = useLocation();
 
   const getContentList = async (route: string) => {
     setShowLoading(true);
@@ -137,10 +139,24 @@ function Welcome() {
 
             {content.type === 'image-galery-3' && (
               <StyledImgGaleryContainer3 src={content.content} onClick={() => setShowImageModal(content.content)}>
-                {content.extraData !== '' && (
+                {content.extraData && content.extraData !== '' && (
                   <StyledImgAlt>{content.extraData}</StyledImgAlt>
                 )}
               </StyledImgGaleryContainer3>
+            )}
+
+            {content.type === 'text' && (
+              <StyledText>
+                {` ${content.content} `}
+              </StyledText>
+            )}
+
+            {content.type === 'internal-link' && (
+              <StyledInternalLink
+                onClick={() => navigate(content.extraData)}
+              >
+                {` ${content.content} `}
+              </StyledInternalLink>
             )}
           </>
         ))}

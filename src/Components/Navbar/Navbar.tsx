@@ -45,7 +45,9 @@ const Navbar = () => {
             <StyledNavButton
               active={location.pathname === menu.link}
               key={`menu-${menu.id}`}
-              onClick={() => navigate(menu.link)}>{menu.name}
+              onClick={() => navigate(menu.link)}
+            >
+              {menu.name}
             </StyledNavButton>
           ))}
         </StyledNavButtonContainer>

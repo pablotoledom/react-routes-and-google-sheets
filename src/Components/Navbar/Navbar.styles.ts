@@ -92,12 +92,6 @@ export const StyledNavButton = styled.button<NavButton>`
     border-right: 1px solid #6b6b6b;
   }
 
-  &:hover {
-    background-color: #000;
-    color: #fff;
-    font-size: 18px;
-  }
-
   @media (min-width: 790px) {
     background-color: #555;
     color: #fff;
@@ -106,5 +100,11 @@ export const StyledNavButton = styled.button<NavButton>`
     ${props => props.active && css`
       background-color: #000;
     `}
+
+    &:hover {
+      background-color: #0000007d;
+      color: #fff;
+      font-size: 18px;
+    }
   }
 `;

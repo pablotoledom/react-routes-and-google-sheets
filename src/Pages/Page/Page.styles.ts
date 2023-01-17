@@ -15,6 +15,8 @@ export const StyledPageContainer = styled.div`
 
 export const StyledContent = styled.div`
   padding: 10px;
+  font-size: 18px;
+  text-align: justify;
 
   @media (min-width: 550px) {
     padding: 20px;
@@ -32,6 +34,19 @@ export const StyledTittle2 = styled.h2`
 export const StyledTittle3 = styled.h3`
   font-weight: bold;
   color: #000000a1;
+`;
+
+export const StyledText = styled.span`
+`;
+
+export const StyledInternalLink = styled.button`
+  border: none;
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: bolder;
+  cursor: pointer;
+  padding: 6px;
+  background-color: transparent;
 `;
 
 export const StyledParagraph = styled.p`
@@ -60,28 +75,31 @@ export const StyledWhatsappLink= styled.a`
   background-image: url(${whatsapp});
   background-repeat: no-repeat;
   margin: 5px;
-  padding: 10px 20px 10px 43px;
+  padding: 6px 20px 10px 35px;
   display: inline-block;
+  background-size: 30px;
 `;
 
 export const StyledFacebookLink= styled.a`
   background-image: url(${facebook});
   background-repeat: no-repeat;
   margin: 5px;
-  padding: 10px 20px 10px 43px;
+  padding: 6px 20px 10px 35px;
   display: inline-block;
+  background-size: 30px;
 `;
 
 export const StyledInstagramLink= styled.a`
   background-image: url(${instagram});
   background-repeat: no-repeat;
   margin: 5px;
-  padding: 10px 20px 10px 43px;
+  padding: 6px 20px 10px 35px;
   display: inline-block;
+  background-size: 30px;
 `;
 
 export const StyledSeparator = styled.div`
-  margin: 10px 0;
+  margin: 16px 0;
   width: 100%;
 `;
 
