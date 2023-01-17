@@ -9,6 +9,7 @@ import {
   StyledFacebookLink,
   StyledImage,
   StyledImageParagraph,
+  StyledImgAlt,
   StyledImgGalery,
   StyledImgGaleryContainer2,
   StyledImgGaleryContainer3,
@@ -18,6 +19,8 @@ import {
   StyledSeparator,
   StyledSeparatorLine,
   StyledTittle,
+  StyledTittle2,
+  StyledTittle3,
   StyledWhatsappLink,
 } from './Page.styles';
 
@@ -26,8 +29,6 @@ function Welcome() {
   const [contentList, setContentList] = useState<PageContent[]>([]);
   const [showImageModal, setShowImageModal] = useState<string>('');
   const location = useLocation();
-
-  console.log(location.pathname);
 
   const getContentList = async (route: string) => {
     setShowLoading(true);
@@ -79,12 +80,24 @@ function Welcome() {
               </StyledTittle>
             )}
 
+            {content.type === 'tittle-2' && (
+              <StyledTittle2 key={content.id}>
+                {content.content}
+              </StyledTittle2>
+            )}
+
+            {content.type === 'tittle-3' && (
+              <StyledTittle3 key={content.id}>
+                {content.content}
+              </StyledTittle3>
+            )}
+
             {content.type === 'whatsapp-link' && (
               <StyledWhatsappLink
                 key={content.id} href={`https://api.whatsapp.com/send?phone=${content.content}&text=Hi, i need more information!"`}
                 target="_blank"
               >
-                WhatsApp number: +{content.content}
+               +{content.content}
               </StyledWhatsappLink>
             )}
 
@@ -93,7 +106,7 @@ function Welcome() {
                 key={content.id} href={`https://www.facebook.com/${content.content}`}
                 target="_blank"
               >
-                Facebook: {content.content}
+                {content.content}
               </StyledFacebookLink>
             )}
 
@@ -102,7 +115,7 @@ function Welcome() {
                 key={content.id} href={`https://www.instagram.com/${content.content}/`}
                 target="_blank"
               >
-                Instagram: {content.content}
+                {content.content}
               </StyledInstagramLink>
             )}
 
@@ -119,14 +132,14 @@ function Welcome() {
             )}
 
             {content.type === 'image-galery-2' && (
-              <StyledImgGaleryContainer2 onClick={() => setShowImageModal(content.content)}>
-                <StyledImgGalery key={content.id} alt={content.type} src={content.content} />
-              </StyledImgGaleryContainer2>
+              <StyledImgGaleryContainer2 src={content.content} onClick={() => setShowImageModal(content.content)} />
             )}
 
             {content.type === 'image-galery-3' && (
-              <StyledImgGaleryContainer3 onClick={() => setShowImageModal(content.content)}>
-                <StyledImgGalery key={content.id} alt={content.type} src={content.content} />
+              <StyledImgGaleryContainer3 src={content.content} onClick={() => setShowImageModal(content.content)}>
+                {content.extraData !== '' && (
+                  <StyledImgAlt>{content.extraData}</StyledImgAlt>
+                )}
               </StyledImgGaleryContainer3>
             )}
           </>

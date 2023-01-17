@@ -39,7 +39,7 @@ export const getRoutes = async () => {
 }
 
 export const getPageContents = async (location: string) => {
-  const responseList  = await getData('PagesContent', 'A3','D200') || [];
+  const responseList  = await getData('PagesContent', 'A3','E200') || [];
   const contentList: PageContent[] = [];
 
   responseList.map((content: any[]) => {
@@ -50,6 +50,7 @@ export const getPageContents = async (location: string) => {
         id: content[1],
         type: content[2],
         content: content[3],
+        extraData: content[4],
       });
     }
 
@@ -57,48 +58,4 @@ export const getPageContents = async (location: string) => {
   });
 
   return contentList.filter((content) => content.route === location);
-}
-
-export const getCategories = async () => {
-  const responseList  = await getData('Routes', 'A2','b20') || [];
-  const categoryList: Category[] = [];
-
-  responseList.map((category: any[]) => {
-    if (category.length > 0) {
-
-      categoryList.push({
-        idCategory: category[0],
-        nameCategory: category[1]
-      });
-    }
-
-    return category;
-  });
-
-  return categoryList;
-}
-
-export const getItems = async (idCategory: string) => {
-  const glossary  = await getData('Routes', 'c2','h20') || [];
-  const itemList: Item[] = [];
-
-  // console.log(idArea, glossary);
-
-  glossary.map((item: any[]) => {
-    if (item.length > 0) {
-
-      itemList.push({
-        idCategory: item[0],
-        idItem: item[1],
-        nameItem: item[2],
-        descriptionItem: item[3],
-        link: item[4],
-        image: item[5],
-      });
-    }
-
-    return item;
-  });
-
-  return itemList.filter((item) => item.idCategory === idCategory);
 }

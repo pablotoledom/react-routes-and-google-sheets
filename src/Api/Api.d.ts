@@ -9,6 +9,7 @@ type PageContent = {
   id: string,
   type: string,
   content: string
+  extraData: string
 }
 
 type Category = {

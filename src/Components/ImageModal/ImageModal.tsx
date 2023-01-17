@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { StyledCloseButton, StyledImageModal, StyledImageModalContainer } from './ImageModal.styles';
 import { ImageModalProps } from './ImageModal.types';
 
@@ -8,10 +8,6 @@ function Carousel({
   closeCallback,
   ...props
 }: ImageModalProps) {
-  const [slideIndex, setSlideIndex] = useState(0);
-  const [showEffect, setShowEffect] = useState(true);
-
-  console.log(show, src);
 
   useEffect(() => {
 

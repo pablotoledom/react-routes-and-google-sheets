@@ -1,14 +1,18 @@
-import styled from 'styled-components/macro'
-import logo from "./img/logo_2.png";
+import styled, { css } from 'styled-components/macro'
+import logo from "./img/logo.png";
 
-export const Nav = styled.div`
+type NavButton = {
+  active: boolean,
+}
+
+export const StyledNav = styled.div`
   width: 100%;
   background-color: #6b6b6bd1;
   display: flex;
   justify-content: center;
 `;
 
-export const NavContent = styled.div`
+export const StyledNavContent = styled.div`
   width: 100%;
   max-width: 1000px;
   height: 70px;
@@ -27,24 +31,29 @@ export const NavContent = styled.div`
 `;
 
 
-export const NavTittleContainer= styled.div`
+export const StyledNavTittleContainer= styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
 `;
 
-export const NavTittle= styled.div`
+export const StyledNavTittle= styled.div`
   margin: 0 20px;
   color: #ffffff;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 500;
   font-family: monospace;
+
+  @media (min-width: 500px) {
+    font-size: 22px;
+  }
 `;
 
-export const LogoButton = styled.button`
+export const StyledLogoButton = styled.button`
   background-image: url(${logo});
   width: 100px;
+  min-width: 100px;
   height: 67px;
   background-size: contain;
   margin-left: 40px;
@@ -54,7 +63,7 @@ export const LogoButton = styled.button`
   cursor: pointer;
 `;
 
-export const NavButtonContainer = styled.div`
+export const StyledNavButtonContainer = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
@@ -65,7 +74,7 @@ export const NavButtonContainer = styled.div`
   }
 `;
 
-export const NavButton = styled.button`
+export const StyledNavButton = styled.button<NavButton>`
   border: none;
   color: #fff;
   padding: 5px 10px;
@@ -75,6 +84,14 @@ export const NavButton = styled.button`
   cursor: pointer;
   transition-duration: 0.4s;
 
+  ${props => props.active && css`
+    background-color: #555;
+  `}
+
+  &:last-of-type {
+    border-right: 1px solid #6b6b6b;
+  }
+
   &:hover {
     background-color: #000;
     color: #fff;
@@ -83,6 +100,11 @@ export const NavButton = styled.button`
 
   @media (min-width: 790px) {
     background-color: #555;
+    color: #fff;
     padding: 20px;
+
+    ${props => props.active && css`
+      background-color: #000;
+    `}
   }
 `;

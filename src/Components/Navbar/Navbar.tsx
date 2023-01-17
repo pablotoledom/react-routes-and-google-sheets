@@ -2,29 +2,29 @@ import { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { getRoutes } from "../../Api";
 import {
-  Nav,
-  NavContent,
-  LogoButton,
-  NavTittle,
-  NavButton,
-  NavButtonContainer,
-  NavTittleContainer,
+  StyledNav,
+  StyledNavContent,
+  StyledLogoButton,
+  StyledNavTittle,
+  StyledNavButton,
+  StyledNavButtonContainer,
+  StyledNavTittleContainer,
 } from './Navbar.styles';
 
 const Navbar = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const { pathname } = useLocation()
   const [tittle, setTittle] = useState('');
   const [menuList, setMenuList] = useState<Route[]>([]);
 
   const getMenuList = async () => {
     const menues: Route[] = await getRoutes();
-    console.log(menues);
     setMenuList(menues);
   };
 
   useEffect(() => {
-    setTittle('Haeng Transport Service');
+    setTittle('Heng Transport Service');
     getMenuList();
   }, [pathname]);
 
@@ -33,20 +33,24 @@ const Navbar = () => {
   }
 
   return (
-    <Nav>
-      <NavContent>
-        <NavTittleContainer>
-          <LogoButton onClick={buttonBack} />
-          <NavTittle>{tittle}</NavTittle>
-        </NavTittleContainer>
+    <StyledNav>
+      <StyledNavContent>
+        <StyledNavTittleContainer>
+          <StyledLogoButton onClick={buttonBack} />
+          <StyledNavTittle>{tittle}</StyledNavTittle>
+        </StyledNavTittleContainer>
 
-        <NavButtonContainer>
+        <StyledNavButtonContainer>
           {menuList.map((menu) => (
-            <NavButton key={`menu-${menu.id}`} onClick={() => navigate(menu.link)}>{menu.name}</NavButton>
+            <StyledNavButton
+              active={location.pathname === menu.link}
+              key={`menu-${menu.id}`}
+              onClick={() => navigate(menu.link)}>{menu.name}
+            </StyledNavButton>
           ))}
-        </NavButtonContainer>
-      </NavContent>
-    </Nav>
+        </StyledNavButtonContainer>
+      </StyledNavContent>
+    </StyledNav>
   )
 }
 
