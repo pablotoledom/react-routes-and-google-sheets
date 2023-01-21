@@ -26,7 +26,7 @@ This project allows you to create a dynamic website in a few minutes.
 
 3. Copy Google Sheet ID from document URL
 
-[![Example website](https://raw.githubusercontent.com/pablotoledom/react-routes-and-google-sheets/main/assets/screenshot_google_sheet.png)](https://raw.githubusercontent.com/pablotoledom/react-routes-and-google-sheets/main/assets/screenshot_google_sheet.png)
+[![Example website](https://raw.githubusercontent.com/pablotoledom/react-routes-and-google-sheets/main/assets/screenshot_google_sheet_id.png)](https://raw.githubusercontent.com/pablotoledom/react-routes-and-google-sheets/main/assets/screenshot_google_sheet_id.png)
 
 4. Go to **https://console.developers.google.com/**.
 5. Create a new or use existing project.
