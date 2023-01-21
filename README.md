@@ -4,6 +4,8 @@ This project allows you to create a dynamic website in a few minutes.
 
 [![Example website](https://raw.githubusercontent.com/pablotoledom/react-routes-and-google-sheets/main/assets/screenshot_site_home.png)](https://raw.githubusercontent.com/pablotoledom/react-routes-and-google-sheets/main/assets/screenshot_site_home.png)
 
+[![Example website](https://raw.githubusercontent.com/pablotoledom/react-routes-and-google-sheets/main/assets/screenshot_site_navigate.png)](https://raw.githubusercontent.com/pablotoledom/react-routes-and-google-sheets/main/assets/screenshot_site_navigate.png)
+
 ## Requirements
 
 - NodeJs
@@ -15,14 +17,6 @@ This project allows you to create a dynamic website in a few minutes.
 
 ## How to run and build
 
-### Run http local server to build a project in real time
-
-1. Clone project.
-2. Run **npm install** command.
-3. Run **npm start** command.
-
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
 ### Create a public Google sheet to use as a database for your website
 
 1. Go to https://docs.google.com/spreadsheets.
@@ -30,15 +24,29 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 [![Example website](https://raw.githubusercontent.com/pablotoledom/react-routes-and-google-sheets/main/assets/screenshot_google_sheet.png)](https://raw.githubusercontent.com/pablotoledom/react-routes-and-google-sheets/main/assets/screenshot_google_sheet.png)
 
-3. Go to https://console.developers.google.com/.
-4. Create a new or use existing project.
-5. Type **Google Sheets API** in your search input, select it and enable API.
-6. Go to **Credentials** menu, next click in **CREATE CREDENTIALS**, and continue in API Key option.
-7. Copy you API Key.
+3. Copy Google Sheet ID from document URL
+
+[![Example website](https://raw.githubusercontent.com/pablotoledom/react-routes-and-google-sheets/main/assets/screenshot_google_sheet.png)](https://raw.githubusercontent.com/pablotoledom/react-routes-and-google-sheets/main/assets/screenshot_google_sheet.png)
+
+4. Go to **https://console.developers.google.com/**.
+5. Create a new or use existing project.
+6. Type **Google Sheets API** in your search input, select it and enable API.
+7. Go to **Credentials** menu, next click in **CREATE CREDENTIALS**, and continue in API Key option.
+8. Copy you API Key.
 
 ### Build your API methods
 
-First, paste your API Key inside the file **/src/Api/index.ts**. Next, you can have for examples the API metohds contained in this file
+First, paste your Google Sheet ID and API Key inside the file **/src/Api/index.ts**. Next, you can have for examples the API metohds contained in this file
+
+[![Example website](https://raw.githubusercontent.com/pablotoledom/react-routes-and-google-sheets/main/assets/screenshot_key_edit.png)](https://raw.githubusercontent.com/pablotoledom/react-routes-and-google-sheets/main/assets/screenshot_key_edit.png)
+
+### Run http local server to build a project in real time
+
+1. Clone project.
+2. Run **npm install** command.
+3. Run **npm start** command.
+
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ## Build a production version of your website
 
