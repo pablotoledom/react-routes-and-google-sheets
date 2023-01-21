@@ -2,6 +2,8 @@
 
 This project allows you to create a dynamic website in a few minutes.
 
+This site is rendered by React and navigation is managed by React-router-dom, the data printed here is dynamically fetched using the Google Sheets document.
+
 [![Example website](https://raw.githubusercontent.com/pablotoledom/react-routes-and-google-sheets/main/assets/screenshot_site_home.png)](https://raw.githubusercontent.com/pablotoledom/react-routes-and-google-sheets/main/assets/screenshot_site_home.png)
 
 [![Example website](https://raw.githubusercontent.com/pablotoledom/react-routes-and-google-sheets/main/assets/screenshot_site_navigate.png)](https://raw.githubusercontent.com/pablotoledom/react-routes-and-google-sheets/main/assets/screenshot_site_navigate.png)
@@ -24,9 +26,11 @@ This project allows you to create a dynamic website in a few minutes.
 
 [![Example website](https://raw.githubusercontent.com/pablotoledom/react-routes-and-google-sheets/main/assets/screenshot_google_sheet.png)](https://raw.githubusercontent.com/pablotoledom/react-routes-and-google-sheets/main/assets/screenshot_google_sheet.png)
 
-3. Copy Google Sheet ID from document URL
+3. Copy Google Sheet spreadsheetId from document URL
 
 [![Example website](https://raw.githubusercontent.com/pablotoledom/react-routes-and-google-sheets/main/assets/screenshot_google_sheet_id.png)](https://raw.githubusercontent.com/pablotoledom/react-routes-and-google-sheets/main/assets/screenshot_google_sheet_id.png)
+
+More information in Google Sheet API Documentation: https://developers.google.com/sheets/api/guides/concepts
 
 4. Go to **https://console.developers.google.com/**.
 5. Create a new or use existing project.
