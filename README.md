@@ -2,6 +2,9 @@
 
 This project allows you to create a dynamic website in a few minutes.
 
+
+[![Example website](https://raw.githubusercontent.com/pablotoledom/react-routes-and-google-sheets/main/assets/screenshot_site_home.png)](https://raw.githubusercontent.com/pablotoledom/react-routes-and-google-sheets/main/assets/screenshot_site_home.png)
+
 ## Requirements
 
 - NodeJs

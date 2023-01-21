@@ -45,7 +45,7 @@ function Items() {
             <AreaTittle>{item.nameItem}</AreaTittle>
             <AreaDescription>{item.descriptionItem}</AreaDescription>
             <LinkStyled>
-              <a href={item. link} rel="noreferrer" target="_blank">More info..</a>
+              <a href={item.link} rel="noreferrer" target="_blank">More info..</a>
             </LinkStyled>
           </div>
         </ItemStyled>
