@@ -12,7 +12,7 @@ This project allows you to create a dynamic website in a few minutes.
 - knowledge in Create React App Package
 - Google account
 
-## For the base of this project, Create React App was used, therefore all the commands of a CRA project are inherited.
+#### For the base of this project, Create React App was used, therefore all the commands of a CRA project are inherited.
 
 ## How to build
 
