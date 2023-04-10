@@ -22,6 +22,7 @@ import {
   StyledTittle,
   StyledTittle2,
   StyledTittle3,
+  StyledTripdavisorLink,
   StyledWhatsappLink,
 } from './Page.styles';
 
@@ -119,6 +120,15 @@ function Welcome() {
               >
                 {content.content}
               </StyledInstagramLink>
+            )}
+
+            {content.type === 'tripadvisor-link' && (
+              <StyledTripdavisorLink
+                key={content.id} href={content.extraData}
+                target="_blank"
+              >
+                {content.content}
+              </StyledTripdavisorLink>
             )}
 
             {content.type === 'line-feed' && (

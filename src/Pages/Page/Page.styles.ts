@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components/macro';
 import facebook from './img/facebook.png';
 import instagram from './img/instagram.png';
 import whatsapp from './img/whatsapp.png';
+import tripadvisor from './img/tripadvisor.png';
 
 type ImageGalery = {
   src: string,
@@ -62,7 +63,7 @@ export const StyledImageParagraph = styled.img`
   border-radius: 10px;
 
   @media (min-width: 550px) {
-    width: 300px;
+    width: 264px;
   }
 `;
 
@@ -91,6 +92,15 @@ export const StyledFacebookLink= styled.a`
 
 export const StyledInstagramLink= styled.a`
   background-image: url(${instagram});
+  background-repeat: no-repeat;
+  margin: 5px;
+  padding: 6px 20px 10px 35px;
+  display: inline-block;
+  background-size: 30px;
+`;
+
+export const StyledTripdavisorLink= styled.a`
+  background-image: url(${tripadvisor});
   background-repeat: no-repeat;
   margin: 5px;
   padding: 6px 20px 10px 35px;
